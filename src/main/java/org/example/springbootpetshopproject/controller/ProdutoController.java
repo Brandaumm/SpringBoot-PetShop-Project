@@ -39,12 +39,6 @@ public class ProdutoController {
 
     }
 
-  /*@DeleteMapping("/{id}")
-    @Transactional
-    public ResponseEntity deletar(@PathVariable Long id) {
-        var produtoEntidade = repository.findById(id);
-
-    }"*/
     @PutMapping("{id}")
     @Transactional
     public ResponseEntity atualizar (@RequestBody ProdutoAtualizarDTO produto,@PathVariable Long id) {

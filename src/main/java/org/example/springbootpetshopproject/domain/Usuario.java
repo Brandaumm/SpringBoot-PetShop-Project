@@ -31,9 +31,6 @@ public class Usuario extends ModelGenerico implements UserDetails {
     @Length(min = 2, max = 60, message = "O nome precisa conter mais do que {min} caracteres e menos do que {max} caracteres.")
     String nome;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Carrinho> carrinhos = new ArrayList<>();
-
     @Email
     @NotEmpty(message = "O email precisa ser preenchido.")
     @NotNull(message = "O email não pode ser nulo.")
@@ -56,6 +53,8 @@ public class Usuario extends ModelGenerico implements UserDetails {
 
     UserRole role;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Carrinho> carrinhos = new ArrayList<>();
 
 
     public void atualizarDados (UsuarioRequestDTO dados){
@@ -121,6 +120,5 @@ public class Usuario extends ModelGenerico implements UserDetails {
         return true;
     }
 
-    //List<Carrinho> compras;  adicionar atributo depois
 
 }
